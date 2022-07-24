@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { LoadingService } from './core/services/loading.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'marvel-comics';
+  showLoader$: Observable<boolean>;
+  constructor(private loadingService: LoadingService ) {
+    this.showLoader$ = this.loadingService.showLoading$;
+  }
 }
