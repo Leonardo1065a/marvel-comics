@@ -1,60 +1,12 @@
-.example-spacer {
-    flex: 1 1 auto;
-}
+:host {
+  header {
+    margin-bottom: -4px;
 
-.title {
-    font-size: 25px;
-    font-weight: 900;
-    cursor: pointer;
-}
-
-.w-250px {
-    width: 250px;
-}
-
-mat-toolbar {
-    z-index: 9;
-    width: 100%;
-    border-bottom: 1px solid rgba(0,0,0,.1);
-    background-color: #fff;
-    padding: 40px 30px;
-}
-
-span.menu {
-    font-size: 20px;
-    font-weight: 500;
-    float: right;
-    cursor: pointer;
-}
-
-#divBusca{
-    background-color: #fff;
-    border: 1px solid #ced4da;
-    border-radius: 10px;
-    height: 32px;
-    input {
-        font-size: 14px;
-        border-color: #ccc;
-        border-radius: 30px;
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px 0;
     }
-    input:focus {
-        outline: none;
-    }
-}
-  
-#txtBusca{
-    float:right;
-    background-color:transparent;
-    padding-left:5px;
-    font-size:18px;
-    border:none;
-    height:32px;
-    width:213px;
-}
-
-mat-icon {
-    padding-top: 5px;
-    font-size: 20px;
-    padding-left: 6px;
-    color: #ccc;
+  }
 }

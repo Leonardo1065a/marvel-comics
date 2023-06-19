@@ -1,4 +1,63 @@
+@import './assets/scss/colors';
+@import './assets/scss/template';
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+$font-family-base: 'Poppins', sans-serif;
+
+$primary: $primary_color;
+
+$input-border-color: rgba(0, 0, 0, 0.2);
+
+$input-bg: transparent;
+
+$input-padding-y: 18px;
+
+$input-padding-y-sm: 12px;
+
+$btn-color: #ffffff;
+
+$btn-link-color: $black_text_color;
+
+$border-color: $primary_color;
+
+$enable-negative-margins: true;
+
+$theme-colors: (
+  'primary': $primary_color,
+  'secondary': $secondary_color,
+  'black': $black_text_color,
+  'grey': $grey_text_color,
+  'red': $red_text_color,
+  'light': $white_text_color,
+  'transparentt': transparent,
+  'success': #198754,
+  'danger': #bb2d3b,
+);
+
+$colors: (
+  'primary': $primary_color,
+  'secondary': $secondary_color,
+  'grey': $grey_text_color,
+  'black': $black_text_color,
+  'light': $white_text_color,
+  'red': $red_text_color,
+);
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+/* Importing Icons SCSS file. */
+@import 'node_modules/bootstrap-icons/font/bootstrap-icons';
+
+/* Importing Datepicker SCSS file. */
+@import 'node_modules/ngx-bootstrap/datepicker/bs-datepicker';
+
+html {
+  height: calc(100vh - calc(100vh - 100%));
+  overflow-x: hidden;
+
+  body {
+    height: 100%;
+    background-color: #f5f5f5;
+  }
+}

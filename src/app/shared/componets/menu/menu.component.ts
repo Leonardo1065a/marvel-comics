@@ -5,13 +5,12 @@ import { AuthService } from '../../service/login/auth.service';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
 })
-export class MenuComponent implements OnInit{
-  constructor(readonly service: AuthService, private router: Router) { }
+export class MenuComponent implements OnInit {
+  constructor(readonly service: AuthService, private router: Router) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   logout() {
     this.service.logout();
