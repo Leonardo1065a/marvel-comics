@@ -6,11 +6,13 @@ import { EventsEffects } from '@store/effects';
 import { fromEvents } from '@store/reducers';
 import { EventsService } from '@store/services';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { BannerComponent } from './card/banner/banner.component';
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
+import { HomeService } from './providers/home.service';
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, BannerComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -18,6 +20,6 @@ import { HomeComponent } from './home.component';
     StoreModule.forFeature(fromEvents.featureKey, fromEvents.reducer),
     EffectsModule.forFeature([EventsEffects]),
   ],
-  providers: [EventsService],
+  providers: [EventsService, HomeService],
 })
 export class HomeModule {}

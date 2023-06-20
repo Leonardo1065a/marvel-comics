@@ -1,50 +1,5 @@
-<div class="w-100">
-  <carousel [interval]="3000" [noPause]="false" [showIndicators]="false" [pauseOnFocus]="true">
-    <slide>
-      <img src="https://cdn.marvel.com/content/1x/stanlee_0616_com_mas_dsk_01.jpg" alt="Imagem 1">
-      <div class="image"
-        style="background-image: url('https://cdn.marvel.com/content/1x/stanlee_0616_com_mas_mob_01.jpg')">
-      </div>
-      <div class="carousel-caption">
-        <div class="overlay">
-          <div class="content">
-            <span>Now Streaming</span>
-            <p>The original documentary 'Stan Lee' is now streaming only on Disney+; we spoke to
-              director and producer David Gelb about his work behind-the-scenes.</p>
-          </div>
-        </div>
-      </div>
-    </slide>
-    <slide>
-      <img src="https://cdn.marvel.com/content/1x/johnromita_com_mas_dsk_01_0.jpg" alt="Imagem 2">
-      <div class="image"
-        style="background-image: url('https://cdn.marvel.com/content/1x/johnromita_com_mas_mob_01.jpg')">
-      </div>
-      <div class="carousel-caption">
-        <div class="overlay">
-          <div class="content">
-            <span>A New Era of Captain Marvel</span>
-            <p>Check out the brand new costume for Carol Danvers' new run by Alyssa Wong and Jan
-              Bazaldua this October!</p>
-          </div>
-        </div>
+<app-banner></app-banner>
 
-      </div>
-    </slide>
-    <slide>
-      <img src="https://cdn.marvel.com/content/1x/msm_0616_com_mas_dsk_01.jpg" alt="Imagem 3">
-      <div class="image"
-        style="background-image: url('https://cdn.marvel.com/content/1x/msm_0616_com_mas_mob_01.jpg')">
-      </div>
-      <div class="carousel-caption">
-        <div class="overlay">
-          <div class="content">
-            <span>All About Pre-Orders</span>
-            <p>We've got all the details on pre-ordering 'Marvel's Spider-Man 2', plus an exclusive
-              interview with Bryan Intihar, Creative Director at Insomniac Games!</p>
-          </div>
-        </div>
-      </div>
-    </slide>
-  </carousel>
-</div>
+<ng-container *ngIf="__data$ | async as data">
+  <p class="primary" *ngFor="let item of data">{{ item.id }}</p>
+</ng-container>

@@ -1,18 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { TesteService } from '@shared/service/teste/post.service';
+import { BaseComponent } from '@core/components';
+import { EventData } from '@interfaces';
+import { HomeService } from './providers/home.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
-  _innerHtml = '<a href="http://marvel.com">Data provided by Marvel. © 2023 MARVEL</a>';
-
-  constructor(private testeService: TesteService, private store: Store) {
-    this.testeService.get();
+export class HomeComponent extends BaseComponent<EventData[]> implements OnInit {
+  constructor(private service: HomeService) {
+    super();
   }
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    const { service } = this;
+
+    this.__data$ = service.__data$;
+  }
 }
