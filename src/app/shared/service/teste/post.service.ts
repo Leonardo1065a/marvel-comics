@@ -1,21 +1,24 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { resultMap } from '../../utils/result-map';
-import { environment } from './../../../../environments/environment';
-
+import { environment } from '@environments/environment';
+import { Store } from '@ngrx/store';
+import { eventsActions } from '@store/actions';
+import { events } from '@store/selectors';
 @Injectable({
   providedIn: 'root',
 })
 export class TesteService {
   private _gateway = `${environment.gateway}/v1/public/events`;
-  constructor(private http: HttpClient) {}
+  constructor(private store: Store) {}
 
-  get(): Observable<any> {
-    return this.http.get<any>(`${this._gateway}`).pipe(resultMap());
-  }
+  get() {
+    const url = `${this._gateway}`;
+    const identifier = 'events';
+    this.store.dispatch(eventsActions.load({ identifier, url }));
 
-  getcharacters(): Observable<any> {
-    return this.http.get<any>(`${this._gateway}/82967`).pipe(resultMap());
+    const data = this.store.select(events.selectByIdentifier({ identifier }));
+
+    data.subscribe((_) => {
+      console.log('leo', _);
+    });
   }
 }
