@@ -1,8 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { inject } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { lastValueFrom } from 'rxjs';
 export abstract class CommonsStoreService<T> {
-  protected http = inject(HttpClient);
+  protected __http = inject(HttpClient);
+
+  protected __store = inject(Store);
 
   constructor() {}
 
@@ -15,12 +18,12 @@ export abstract class CommonsStoreService<T> {
   }
 
   protected async loadData(url: string, identifier: string) {
-    const { http } = this;
+    const { __http } = this;
 
     this.updateControl({ isLoading: true });
 
     try {
-      const data = await lastValueFrom(http.get<any>(url));
+      const data = await lastValueFrom(__http.get<any>(url));
 
       const items = this.getEmbeddedData(data);
 

@@ -1,5 +1,16 @@
 <app-banner></app-banner>
 
-<ng-container *ngIf="__data$ | async as data">
-  <p class="primary" *ngFor="let item of data">{{ item.id }}</p>
-</ng-container>
+
+<div class="d-flex gap-5">
+  <div>
+    <ng-container *ngIf="__data$ | async as data">
+      <p class="primary" *ngFor="let item of data">{{ item.title }}</p>
+    </ng-container>
+  </div>
+  <div>
+    <ng-container *ngIf="_characters$ | async as data">
+      <p class="primary" *ngFor="let item of data">{{ item.name }}</p>
+    </ng-container>
+  </div>
+
+</div>

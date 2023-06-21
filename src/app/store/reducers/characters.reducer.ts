@@ -1,20 +1,21 @@
 import { buildId } from '@core/utils';
-import { EventData } from '@interfaces';
-import { createEntityAdapter, EntityAdapter, EntityState } from '@ngrx/entity';
+import { CharacterData } from '@interfaces';
+import { EntityAdapter, EntityState, createEntityAdapter } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
-import { eventsActions as action } from '@store/actions';
+import { charactersActions as action } from '@store/actions';
 
-export const featureKey = 'events';
-export interface State extends EntityState<EventData> {
+export const featureKey = 'characters';
+
+export interface State extends EntityState<CharacterData> {
   control: {
     isLoading: boolean;
   };
   error: any;
 }
 
-export const adapter: EntityAdapter<EventData> = createEntityAdapter<EventData>({
-  selectId: (item: EventData) => {
-    return buildId(item);
+export const adapter: EntityAdapter<CharacterData> = createEntityAdapter<CharacterData>({
+  selectId: (item: CharacterData) => {
+    return buildId<CharacterData>(item);
   },
 });
 

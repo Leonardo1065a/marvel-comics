@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home.component';
+import { CharactersService } from './providers/characters.service';
 import { HomeService } from './providers/home.service';
 
 @NgModule({
@@ -10,7 +11,8 @@ import { HomeService } from './providers/home.service';
         path: '',
         component: HomeComponent,
         resolve: {
-          data: HomeService,
+          HomeService,
+          CharactersService,
         },
       },
     ]),
