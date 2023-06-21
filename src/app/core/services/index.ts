@@ -1,2 +1,3 @@
-export * from './commons-service.service';
+export * from './commons-store.service';
+export * from './commons.service';
 export * from './loading.service';
