@@ -2,13 +2,14 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-import { Keys } from '../keys';
+import { keys } from "keys";
+
 
 export const environment = {
   production: false,
   gateway: 'http://gateway.marvel.com',
-  apikey: Keys.publicKey,
-  privateKey: Keys.privateKey,
+  apikey: keys.publicKey,
+  privateKey: keys.privateKey,
 };
 
 /*
