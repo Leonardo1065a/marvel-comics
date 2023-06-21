@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BaseComponent } from '@core/components';
 import { EventData } from '@interfaces';
 import { Observable } from 'rxjs';
-import { CharactersService } from './providers/characters.service';
+import { CharacterService } from './providers/character.service';
 import { HomeService } from './providers/home.service';
 
 @Component({
@@ -13,15 +13,15 @@ import { HomeService } from './providers/home.service';
 export class HomeComponent extends BaseComponent<EventData[]> implements OnInit {
   _characters$: Observable<any>;
 
-  constructor(private service: HomeService, private charactersService: CharactersService) {
+  constructor(private service: HomeService, private characterService: CharacterService) {
     super();
   }
 
   ngOnInit() {
-    const { service, charactersService } = this;
+    const { service, characterService } = this;
 
     this.__data$ = service.__data$;
 
-    this._characters$ = charactersService.__data$;
+    this._characters$ = characterService.__data$;
   }
 }

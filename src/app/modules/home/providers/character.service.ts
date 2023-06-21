@@ -7,7 +7,7 @@ import { charactersActions } from '@store/actions';
 import { characters } from '@store/selectors';
 
 @Injectable()
-export class CharactersService extends CommonsService<CharacterData[]> implements Resolve<any> {
+export class CharacterService extends CommonsService<CharacterData[]> implements Resolve<any> {
   private gateway = `${environment.gateway}/v1/public`;
 
   constructor() {

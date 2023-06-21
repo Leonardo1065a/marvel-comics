@@ -1,14 +1,19 @@
-import { HttpInterceptor, HttpHandler, HttpRequest, HttpResponse, HttpErrorResponse } from '@angular/common/http';
-import { forwardRef, Inject, Injectable } from '@angular/core';
+import {
+  HttpErrorResponse,
+  HttpHandler,
+  HttpInterceptor,
+  HttpRequest,
+  HttpResponse,
+} from '@angular/common/http';
+import { Inject, Injectable, forwardRef } from '@angular/core';
 import { throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { LoadingService } from '../services/loading.service';
 
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
-  
   constructor(@Inject(forwardRef(() => LoadingService)) private loadingService: LoadingService) {}
-  
+
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     this.loadingService.openLoader();
     return next.handle(req).pipe(

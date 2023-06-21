@@ -9,8 +9,6 @@ export class CharactersService extends CommonsStoreService<any> {
   }
 
   protected update(data: any[], identifier: string) {
-    console.log('teigasiudfgbasiyugd');
-
     const { __store } = this;
 
     __store.dispatch(

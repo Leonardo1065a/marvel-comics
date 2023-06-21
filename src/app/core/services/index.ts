@@ -1,3 +1,2 @@
-export * from './commons-store.service';
-export * from './commons.service';
+export * from './generics';
 export * from './loading.service';

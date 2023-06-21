@@ -1,5 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Event, NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router } from '@angular/router';
+import {
+  Event,
+  NavigationCancel,
+  NavigationEnd,
+  NavigationError,
+  NavigationStart,
+  Router,
+} from '@angular/router';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 
@@ -30,7 +37,7 @@ export class LoadingService {
   }
 
   private listenCloseLoader() {
-    this.closeLoader$.pipe(debounceTime(1000)).subscribe(() => {
+    this.closeLoader$.pipe(debounceTime(500)).subscribe(() => {
       this.showLoadingSource.next(false);
     });
   }

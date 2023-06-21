@@ -13,7 +13,7 @@ export abstract class CommonsStoreService<T> {
 
   protected abstract update(data: T[], identifier: string): void;
 
-  protected getEmbeddedData(data: any) {
+  protected getEmbeddedData(data: any): T[] {
     return data.data.results;
   }
 

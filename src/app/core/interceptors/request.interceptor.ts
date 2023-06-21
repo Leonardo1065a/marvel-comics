@@ -10,8 +10,8 @@ import {
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '@environments/environment';
+import * as CryptoJS from 'crypto-js';
 import { Observable } from 'rxjs';
-import { Md5 } from 'ts-md5/dist/md5';
 
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
@@ -30,7 +30,8 @@ export class RequestInterceptor implements HttpInterceptor {
   private getParams() {
     const { apikey, privateKey } = environment;
     const ts = new Date().getMilliseconds().toString();
-    const hash = new Md5().appendStr(`${ts}${privateKey}${apikey}`).end().toString();
+    const hash = CryptoJS.MD5(`${ts}${privateKey}${apikey}`).toString();
+
     return { apikey, hash, ts };
   }
 }
