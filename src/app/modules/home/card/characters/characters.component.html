@@ -1,0 +1,12 @@
+<h1 class="mt-5 text-center">Characters</h1>
+
+
+<div class="d-flex container-events mx-3 mt-5">
+  <div class="card" *ngFor="let data of model">
+    <img [src]="data.thumbnail.path + '.' + data.thumbnail.extension" alt="Imagem">
+    <div class="card-content p-3">
+      <h2 class="mt-1">{{ data.name }}</h2>
+      <p>{{ data.id }}</p>
+    </div>
+  </div>
+</div>

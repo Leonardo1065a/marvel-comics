@@ -1,5 +1,8 @@
 <app-banner></app-banner>
 
+<app-events [model]="__data$ | async"></app-events>
+
+<app-characters [model]="_characters$ | async"></app-characters>
 
 <div class="d-flex gap-5">
   <div>

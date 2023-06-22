@@ -11,9 +11,11 @@ import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
 import { CharacterService } from './providers/character.service';
 import { HomeService } from './providers/home.service';
+import { EventsComponent } from './card/events/events.component';
+import { CharactersComponent } from './card/characters/characters.component';
 
 @NgModule({
-  declarations: [HomeComponent, BannerComponent],
+  declarations: [HomeComponent, BannerComponent, EventsComponent, CharactersComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
