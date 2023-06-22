@@ -26,6 +26,7 @@
     "@ngrx/store": "^13.2.0",
     "bootstrap": "^5.2.2",
     "bootstrap-icons": "^1.9.1",
+    "crypto-es": "^1.2.7",
     "crypto-js": "^4.1.1",
     "moment": "^2.29.4",
     "ngx-bootstrap": "^8.0.0",
