@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { EventData } from '@interfaces';
+import { Control, EventData } from '@interfaces';
 
 @Component({
   selector: 'app-events',
@@ -8,6 +8,8 @@ import { EventData } from '@interfaces';
 })
 export class EventsComponent implements OnInit {
   @Input() model: EventData[];
+
+  @Input() control: Control;
 
   constructor() {}
 

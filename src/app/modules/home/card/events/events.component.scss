@@ -9,6 +9,10 @@
       height: auto;
       flex-grow: 1;
 
+      .img-loading {
+        padding-bottom: 100%;
+      }
+
       .card-content {
         p {
           line-height: 1.3;

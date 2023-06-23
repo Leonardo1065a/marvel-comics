@@ -22,6 +22,8 @@ export class HomeComponent extends BaseComponent<EventData[]> implements OnInit 
 
     this.__data$ = service.__data$;
 
+    this.__control$ = service.__control$;
+
     this._characters$ = characterService.__data$;
   }
 }

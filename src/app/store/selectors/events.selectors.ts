@@ -16,6 +16,16 @@ export const selectByIdentifier = (props: { identifier: string }) => {
   });
 };
 
+export const selectByIdentifierWithSize = (props: { identifier: string; size: number }) => {
+  return createSelector(selectAllEvents, (entities: EventData[]): EventData[] => {
+    const data = entities.filter((_: EventData) => {
+      return _.identifier === props.identifier;
+    });
+
+    return data.slice(0, props.size);
+  });
+};
+
 export const selectControl = () => {
   return createSelector(selectEventsState, (state: State): any => {
     return state.control;

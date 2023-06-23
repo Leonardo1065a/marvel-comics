@@ -1,6 +1,6 @@
 <app-banner></app-banner>
 
-<app-events [model]="__data$ | async"></app-events>
+<app-events [model]="__data$ | async" [control]="__control$ | async"></app-events>
 
 <app-characters [model]="_characters$ | async"></app-characters>
 

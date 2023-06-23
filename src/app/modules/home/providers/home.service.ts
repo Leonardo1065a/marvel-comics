@@ -23,7 +23,7 @@ export class HomeService extends CommonsService<EventData[]> implements Resolve<
 
     __store.dispatch(eventsActions.load({ identifier, url }));
 
-    this.__data$ = __store.select(events.selectByIdentifier({ identifier }));
+    this.__data$ = __store.select(events.selectByIdentifierWithSize({ identifier, size: 3 }));
 
     this.__control$ = __store.select(events.selectControl());
   }
