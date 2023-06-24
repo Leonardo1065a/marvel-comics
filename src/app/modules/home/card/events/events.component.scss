@@ -8,6 +8,7 @@
       width: 280px;
       height: auto;
       flex-grow: 1;
+      transition: transform 0.5s;
 
       .img-loading {
         padding-bottom: 100%;
@@ -21,6 +22,10 @@
           text-overflow: ellipsis;
         }
       }
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
     }
   }
 }

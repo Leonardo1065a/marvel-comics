@@ -1,24 +1,24 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from '@environments/environment';
-import { Store } from '@ngrx/store';
-import { eventsActions } from '@store/actions';
-import { events } from '@store/selectors';
+import { CommonsService } from '@core/services';
+import { lastValueFrom } from 'rxjs';
+
 @Injectable({
   providedIn: 'root',
 })
-export class TesteService {
-  private _gateway = `${environment.gateway}/v1/public/events`;
-  constructor(private store: Store) {}
+export class TesteService extends CommonsService<any> {
+  constructor(private http: HttpClient) {
+    super();
+  }
 
-  get() {
-    const url = `${this._gateway}`;
-    const identifier = 'events';
-    this.store.dispatch(eventsActions.load({ identifier, url }));
+  async get(url: string) {
+    const { http } = this;
 
-    const data = this.store.select(events.selectByIdentifier({ identifier }));
-
-    data.subscribe((_) => {
-      console.log('leo', _);
-    });
+    try {
+      const data = await lastValueFrom(http.get<any>(url));
+      console.log(data);
+    } catch (e) {
+      // not to do
+    }
   }
 }

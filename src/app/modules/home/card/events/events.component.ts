@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Control, EventData } from '@interfaces';
+import { TesteService } from './../../../../shared/service/teste/post.service';
 
 @Component({
   selector: 'app-events',
@@ -11,7 +12,12 @@ export class EventsComponent implements OnInit {
 
   @Input() control: Control;
 
-  constructor() {}
+  constructor(private service: TesteService) {}
+
+  viewDetail(data: any) {
+    this.service.get('http://gateway.marvel.com/v1/public/creators/8504');
+    console.log(data);
+  }
 
   ngOnInit(): void {}
 }

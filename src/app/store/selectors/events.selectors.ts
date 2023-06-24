@@ -22,7 +22,8 @@ export const selectByIdentifierWithSize = (props: { identifier: string; size: nu
       return _.identifier === props.identifier;
     });
 
-    return data.slice(0, props.size);
+    const random = Math.floor(Math.random() * (entities.length - props.size));
+    return data.slice(random, random + props.size);
   });
 };
 
