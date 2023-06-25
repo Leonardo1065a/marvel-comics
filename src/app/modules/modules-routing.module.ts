@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'events',
     loadChildren: () => import('./events/events.module').then((m) => m.EventsModule),
   },
+  {
+    path: 'comics',
+    loadChildren: () => import('./comics/comics.module').then((m) => m.ComicsModule),
+  },
 ];
 
 @NgModule({
