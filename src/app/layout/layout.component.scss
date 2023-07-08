@@ -1,0 +1,18 @@
+main {
+  height: 100vh;
+  height: -webkit-fill-available;
+  max-height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.page-content-wrapper {
+  min-width: 100vw;
+}
+
+@media (min-width: 768px) {
+  .page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+}
