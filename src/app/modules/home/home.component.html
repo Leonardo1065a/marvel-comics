@@ -1,1 +1,25 @@
-<p>home works!</p>
+<app-banner></app-banner>
+
+<app-events [model]="__data$ | async" [control]="__control$ | async"></app-events>
+
+<app-characters [model]="_characters$ | async"></app-characters>
+
+<app-comics [model]="_comics$ | async" [control]="__control$ | async"></app-comics>
+
+<!-- <div class="d-flex gap-5">
+  <div>
+    <ng-container *ngIf="__data$ | async as data">
+      <p class="primary" *ngFor="let item of data">{{ item.title }}</p>
+    </ng-container>
+  </div>
+  <div>
+    <ng-container *ngIf="_characters$ | async as data">
+      <p class="primary" *ngFor="let item of data">{{ item.name }}</p>
+    </ng-container>
+  </div>
+  <div>
+    <ng-container *ngIf="_comics$ | async as data">
+      <p class="primary" *ngFor="let item of data">{{ item.title }}</p>
+    </ng-container>
+  </div>
+</div> -->

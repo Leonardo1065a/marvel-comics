@@ -1,0 +1,49 @@
+@import '../assets/scss/colors';
+
+:host {
+  .loading {
+    height: 4px;
+  }
+  footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    white-space: nowrap;
+    background: #151515;
+    color: #767676;
+    font-size: 0.8rem;
+    text-decoration: none;
+    line-height: 1.2em;
+    padding: 0.2rem 0;
+  }
+
+  .progress-bar {
+    height: 4px;
+    overflow: hidden;
+  }
+
+  .progress-bar::before {
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      $secondary_color 0%,
+      $red_text_color 50%,
+      $secondary_color 100%
+    );
+    animation: progress 2s infinite;
+  }
+
+  @keyframes progress {
+    0% {
+      transform: scaleX(0);
+    }
+    100% {
+      transform: scaleX(1);
+    }
+  }
+}

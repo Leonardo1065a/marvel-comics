@@ -1,33 +1,37 @@
-import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { 
-    HttpProgressEvent, 
-    HttpUserEvent,
-    HttpResponse, 
-    HttpHeaderResponse, 
-    HttpSentEvent, 
-    HttpHandler, 
-    HttpRequest, 
-    HttpInterceptor 
-} from "@angular/common/http";
-import { Md5 } from 'ts-md5/dist/md5';
-import { environment } from 'src/environments/environment';
+import {
+  HttpHandler,
+  HttpHeaderResponse,
+  HttpInterceptor,
+  HttpProgressEvent,
+  HttpRequest,
+  HttpResponse,
+  HttpSentEvent,
+  HttpUserEvent,
+} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { environment } from '@environments/environment';
+import { MD5 } from 'crypto-es/lib/md5.js';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
-    constructor() {}
+  constructor() {}
 
-    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpSentEvent 
-        | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>> {
-            req = req.clone({ setParams: this.getParams() });
-            return next.handle(req);
-    }
+  intercept(
+    req: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<
+    HttpSentEvent | HttpHeaderResponse | HttpProgressEvent | HttpResponse<any> | HttpUserEvent<any>
+  > {
+    req = req.clone({ setParams: this.getParams() });
+    return next.handle(req);
+  }
 
-    private getParams() {
-        const { apikey, privateKey } = environment;
-        const ts = new Date().getMilliseconds().toString();
-        const hash = new Md5().appendStr(`${ts}${privateKey}${apikey}`).end().toString();
-        return { apikey, hash, ts };
-    }
+  private getParams() {
+    const { apikey, privateKey } = environment;
+    const ts = new Date().getMilliseconds().toString();
+    const hash = MD5(`${ts}${privateKey}${apikey}`).toString();
 
+    return { apikey, hash, ts };
+  }
 }

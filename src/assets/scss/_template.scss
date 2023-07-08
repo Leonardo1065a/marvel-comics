@@ -1,0 +1,104 @@
+@import "./colors";
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fs-7 {
+  font-size: 0.8rem !important;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.resize-none {
+  resize: none;
+}
+
+.min-table {
+  min-width: 767px;
+}
+
+.link {
+  cursor: pointer;
+  justify-content: space-between;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    color: $primary_color !important;
+  }
+}
+
+button.btn.btn-outline-primary.text-primary:hover {
+  color: $white_text_color !important;
+}
+
+/* start buttton with icon */
+.inner-addon {
+  position: relative;
+
+  .bi {
+    position: absolute;
+    pointer-events: none;
+    padding: 13px;
+  }
+}
+
+.right-addon {
+  .bi {
+    right: 0px;
+  }
+
+  input {
+    padding-right: 45px;
+  }
+}
+/* end buttton with icon */
+
+/* start fade-in */
+.fade-in {
+  -webkit-animation: fadeIn 0.5s ease-in-out;
+  -moz-animation: fadeIn 0.5s ease-in-out;
+  -o-animation: fadeIn 0.5s ease-in-out;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/* end fade-in */
