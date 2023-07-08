@@ -24,8 +24,19 @@
 
 <body>
   <app-root></app-root>
-
-
+  <div id="preloader" class="preloader">
+    <div class="preloader-progress">
+      <div class="preloader-progress-bar"></div>
+    </div>
+  </div>
 </body>
+
+<script>
+  const preloader = document.getElementById('preloader');
+  setTimeout(() => {
+    preloader.classList.add("d-none");
+  }, 1500);
+
+</script>
 
 </html>
