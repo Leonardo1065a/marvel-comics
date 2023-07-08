@@ -14,7 +14,7 @@ import { CoreModule } from './core/core.module';
 import { MenuModule } from './shared/componets/menu/menu.module';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ErrorHandlingService implements ErrorHandler {
   constructor() {
@@ -27,7 +27,9 @@ export class ErrorHandlingService implements ErrorHandler {
   }
 }
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -41,15 +43,15 @@ export class ErrorHandlingService implements ErrorHandler {
       maxAge: 25, // Limite de ações mantidas no histórico (opcional)
       logOnly: environment.production, // Exibir logs somente em ambiente de produção (opcional)
       autoPause: true, // Pausar gravação de ações ao sair da página (opcional)
-      name: 'Meu App Store',
-    }),
+      name: 'Meu App Store'
+    })
   ],
   providers: [
     {
       provide: ErrorHandler,
-      useClass: ErrorHandlingService,
-    },
+      useClass: ErrorHandlingService
+    }
   ],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

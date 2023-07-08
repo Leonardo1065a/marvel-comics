@@ -1,9 +1,8 @@
 <app-menu></app-menu>
-
-<div class="loading bg-primary">
-    <div *ngIf="showLoader$ | async" class="progress-bar bg-red"></div>
+<div style="height: 4px">
+  <mat-progress-bar
+    *ngIf="showLoader$ | async"
+    mode="indeterminate"
+  ></mat-progress-bar>
 </div>
-
 <router-outlet></router-outlet>
-
-<footer>Data provided by Marvel. © 2023 MARVEL</footer>
