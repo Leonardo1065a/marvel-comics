@@ -11,11 +11,21 @@ import { HomeService } from './providers/home.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent extends BaseComponent<EventData[]> implements OnInit {
+export class HomeComponent
+  extends BaseComponent<EventData[]>
+  implements OnInit
+{
   _characters$: Observable<any>;
   _comics$: Observable<any>;
+  _lastUpdate$: Observable<any>;
 
-  constructor(private service: HomeService, private characterService: CharacterService, private comicService: ComicService) {
+  updateListEvents() {}
+
+  constructor(
+    private service: HomeService,
+    private characterService: CharacterService,
+    private comicService: ComicService
+  ) {
     super();
   }
 
@@ -28,6 +38,12 @@ export class HomeComponent extends BaseComponent<EventData[]> implements OnInit 
 
     this._characters$ = characterService.__data$;
 
+    this._lastUpdate$ = service._lastUpdate$;
+
     this._comics$ = comicService.__data$;
+  }
+
+  updatEvents() {
+    this.service.updateListEvents();
   }
 }

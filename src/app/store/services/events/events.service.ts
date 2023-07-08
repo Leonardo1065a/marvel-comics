@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { CommonsStoreService } from '@core/services';
 import { Store } from '@ngrx/store';
 import { eventsActions } from '@store/actions';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable()
 export class EventsService extends CommonsStoreService<any> {
@@ -26,7 +27,23 @@ export class EventsService extends CommonsStoreService<any> {
     this.store.dispatch(eventsActions.updateControl({ data }));
   }
 
-  public override load(url: string, identifier: string) {
-    this.loadData(url, identifier);
+  protected override async loadData(url: string, identifier: string) {
+    const { __http } = this;
+
+    this.updateControl({ isLoading: true });
+
+    try {
+      const data = await lastValueFrom(__http.get<any>(url));
+
+      const items = this.getEmbeddedData(data);
+
+      this.updateControl({ lastUpdate: new Date() });
+
+      this.update(items, identifier);
+    } catch (e) {
+      // not to do
+    }
+
+    this.updateControl({ isLoading: false });
   }
 }

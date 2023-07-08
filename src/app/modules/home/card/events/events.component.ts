@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Control, EventData } from '@interfaces';
 import { TesteService } from './../../../../shared/service/teste/post.service';
 
@@ -11,6 +11,10 @@ export class EventsComponent implements OnInit {
   @Input() model: EventData[];
 
   @Input() control: Control;
+
+  @Input() lastUpdate: Date;
+
+  @Output() updateList = new EventEmitter();
 
   constructor(private service: TesteService) {}
 

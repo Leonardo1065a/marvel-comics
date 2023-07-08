@@ -8,19 +8,23 @@ export const featureKey = 'events';
 export interface State extends EntityState<EventData> {
   control: {
     isLoading: boolean;
+    lastUpdate: Date;
   };
   error: any;
 }
 
-export const adapter: EntityAdapter<EventData> = createEntityAdapter<EventData>({
-  selectId: (item: EventData) => {
-    return buildId(item);
-  },
-});
+export const adapter: EntityAdapter<EventData> = createEntityAdapter<EventData>(
+  {
+    selectId: (item: EventData) => {
+      return buildId(item);
+    },
+  }
+);
 
 export const initialState: State = adapter.getInitialState({
   control: {
     isLoading: null,
+    lastUpdate: null,
   },
   error: null,
 });
@@ -46,4 +50,5 @@ export const reducer = createReducer(
   })
 );
 
-export const { selectAll, selectEntities, selectIds, selectTotal } = adapter.getSelectors();
+export const { selectAll, selectEntities, selectIds, selectTotal } =
+  adapter.getSelectors();

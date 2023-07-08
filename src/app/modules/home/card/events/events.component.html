@@ -1,9 +1,14 @@
 <h1 class="mt-5 text-center">Events</h1>
+<button (click)="updateList.emit()" class="btn btn-primary">update</button
+><span>last update: {{ lastUpdate | date : "dd/MM/yyyy hh:mm:ss" }}</span>
 
 <ng-container *ngIf="!control?.isLoading; else loading">
   <div class="d-flex container-events mx-3 mt-5">
     <div class="card" *ngFor="let data of model" (click)="viewDetail(data)">
-      <img [src]="data?.thumbnail?.path + '.' + data?.thumbnail?.extension" [alt]="data?.title">
+      <img
+        [src]="data?.thumbnail?.path + '.' + data?.thumbnail?.extension"
+        [alt]="data?.title"
+      />
       <div class="card-content p-3">
         <h4 class="mt-1">{{ data?.title }}</h4>
         <p>{{ data?.description }}</p>
@@ -14,7 +19,7 @@
 
 <ng-template #loading>
   <div class="d-flex container-events mx-3 mt-5">
-    <div class="card" *ngFor="let data of [1, 2,3]">
+    <div class="card" *ngFor="let data of [1, 2, 3]">
       <div class="loading-item img-loading"></div>
       <div class="card-content p-3">
         <div class="loading-item"></div>

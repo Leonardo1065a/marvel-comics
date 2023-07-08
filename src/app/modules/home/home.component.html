@@ -3,6 +3,8 @@
 <app-events
   [model]="__data$ | async"
   [control]="__control$ | async"
+  [lastUpdate]="_lastUpdate$ | async"
+  (updateList)="updatEvents()"
 ></app-events>
 
 <app-characters [model]="_characters$ | async"></app-characters>
