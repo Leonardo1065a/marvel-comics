@@ -1,10 +1,16 @@
 <app-banner></app-banner>
 
-<app-events [model]="__data$ | async" [control]="__control$ | async"></app-events>
+<app-events
+  [model]="__data$ | async"
+  [control]="__control$ | async"
+></app-events>
 
 <app-characters [model]="_characters$ | async"></app-characters>
 
-<app-comics [model]="_comics$ | async" [control]="__control$ | async"></app-comics>
+<app-comics
+  [model]="_comics$ | async"
+  [control]="__control$ | async"
+></app-comics>
 
 <!-- <div class="d-flex gap-5">
   <div>

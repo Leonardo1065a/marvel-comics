@@ -8,6 +8,7 @@ import { environment } from '@environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { MenuModule } from './shared/componets/menu/menu.module';
@@ -26,10 +27,12 @@ export class ErrorHandlingService implements ErrorHandler {
   }
 }
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [
+    AppComponent
+  ],
   imports: [
     BrowserModule,
-    // AppRoutingModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     CoreModule,
@@ -51,4 +54,4 @@ export class ErrorHandlingService implements ErrorHandler {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
