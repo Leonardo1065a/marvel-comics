@@ -1,6 +1,11 @@
 <h1 class="mt-5 text-center">Events</h1>
-<button (click)="updateList.emit()" class="btn btn-primary">update</button
-><span>last update: {{ lastUpdate | date : "dd/MM/yyyy hh:mm:ss" }}</span>
+
+<div class="d-flex justify-content-center align-items-center">
+  <button (click)="updateList.emit()" class="btn btn-primary">update</button>
+  <span class="pl-3">
+    last update: {{ lastUpdate | date : "dd/MM/yyyy hh:mm:ss" }}
+  </span>
+</div>
 
 <ng-container *ngIf="!control?.isLoading; else loading">
   <div class="d-flex container-events mx-3 mt-5">
